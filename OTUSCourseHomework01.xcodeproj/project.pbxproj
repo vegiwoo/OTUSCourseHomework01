@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,6 @@
 		7774A0C925EAA3B000798E5E /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7774A0C825EAA3B000798E5E /* FilterView.swift */; };
 		7774A0CC25EAA9BE00798E5E /* FoodListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7774A0CB25EAA9BE00798E5E /* FoodListCell.swift */; };
 		7774A0CF25EAAA1300798E5E /* FoodDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7774A0CE25EAAA1300798E5E /* FoodDetailScreen.swift */; };
-		777BEC6725F00008000B22CE /* TmdbAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 777BEC6625F00008000B22CE /* TmdbAPI */; };
 		77A4A50825E956C600E91ACB /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4A50725E956C600E91ACB /* Screens.swift */; };
 		77A4A50B25E9593600E91ACB /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4A50A25E9593600E91ACB /* TabbarView.swift */; };
 		77A4A50F25E95C6600E91ACB /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4A50E25E95C6600E91ACB /* DashboardScreen.swift */; };
@@ -41,7 +40,6 @@
 		7774A0C825EAA3B000798E5E /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		7774A0CB25EAA9BE00798E5E /* FoodListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListCell.swift; sourceTree = "<group>"; };
 		7774A0CE25EAAA1300798E5E /* FoodDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailScreen.swift; sourceTree = "<group>"; };
-		777BEC6425EFFFF7000B22CE /* TmdbAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TmdbAPI; path = ../../../../Desktop/TmdbAPI; sourceTree = "<group>"; };
 		77A4A50725E956C600E91ACB /* Screens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
 		77A4A50A25E9593600E91ACB /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		77A4A50E25E95C6600E91ACB /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777BEC6725F00008000B22CE /* TmdbAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +83,6 @@
 		771ECD4A25E91D0900B7B5CE /* OTUSCourseHomework01 */ = {
 			isa = PBXGroup;
 			children = (
-				777BEC6425EFFFF7000B22CE /* TmdbAPI */,
 				77E0391C25ED7308003B90AC /* Helpers */,
 				7774A0C125EAA2BC00798E5E /* Extensions */,
 				77A4A51B25E95D4C00E91ACB /* Model */,
@@ -183,7 +179,6 @@
 			);
 			name = OTUSCourseHomework01;
 			packageProductDependencies = (
-				777BEC6625F00008000B22CE /* TmdbAPI */,
 			);
 			productName = OTUSCourseHomework01;
 			productReference = 771ECD4825E91D0900B7B5CE /* OTUSCourseHomework01.app */;
@@ -213,7 +208,6 @@
 			);
 			mainGroup = 771ECD3F25E91D0900B7B5CE;
 			packageReferences = (
-				77D5377925EFE71200C2B1A0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 771ECD4925E91D0900B7B5CE /* Products */;
 			projectDirPath = "";
@@ -446,24 +440,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		77D5377925EFE71200C2B1A0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		777BEC6625F00008000B22CE /* TmdbAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TmdbAPI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 771ECD4025E91D0900B7B5CE /* Project object */;
 }

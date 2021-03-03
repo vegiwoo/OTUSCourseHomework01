@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TmdbAPI
 
 struct AboutScreen: View  {
     
@@ -21,20 +20,6 @@ struct AboutScreen: View  {
             Spacer().frame(height: 20)
             Button(action: {
                 showCredits.toggle()
-                
-                let apiKey = "2e6b2f25124ca8304e9b74fb99176e96"
-                
-                TmdbAPI.DefaultAPI.moviePopularGet(apiKey: apiKey, apiResponseQueue: DispatchQueue.global(qos: .utility)) { (response, error) in
-                    
-                    if error == nil, let results = response?.results {
-                        for result in results {
-                            print(result.title)
-                        }
-                    }
-                    
-                    
-                    
-                }
             }) {
                 Text("Version 1.0.0")
             }
