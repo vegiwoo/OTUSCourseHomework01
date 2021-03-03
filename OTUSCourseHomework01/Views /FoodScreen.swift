@@ -14,12 +14,12 @@ struct FoodScreen: View  {
     @State var selectedItemId: String?
     
     var navigationLink: NavigationLink<EmptyView, FoodDetailScreen>? {
-        guard let selectedFoodUUID = selectedItemId else { return nil }
-        guard let selectedFood = appState.foodScreenVM.foods.first(where: {$0.id == selectedFoodUUID}) else { return nil }
+        guard let selectedFoodId = selectedItemId else { return nil }
+        guard let selectedFood = appState.foodScreenVM.foods.first(where: {$0.id == selectedFoodId}) else { return nil }
         
         return NavigationLink(
             destination: FoodDetailScreen(food: selectedFood),
-            tag:  selectedFoodUUID,
+            tag:  selectedFoodId,
             selection: $selectedItemId
         ) {
             EmptyView()

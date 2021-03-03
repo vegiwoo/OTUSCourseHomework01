@@ -8,6 +8,7 @@
 import SwiftUI
 
 final class AppState: ObservableObject {
+    
     @Published var foodScreenVM: FoodScreenVM = .init()
     @Published var selectedTab: TabbarView.Tab = .foodScreen
     @Published var quickLink: Bool = false

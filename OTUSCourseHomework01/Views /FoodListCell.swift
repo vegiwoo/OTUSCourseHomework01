@@ -10,7 +10,6 @@ import SwiftUI
 struct FoodListCell: View {
     
     let food: Food
-    let randomTag: UUID = .init()
     @Binding var selectedItemId: String?
     
     var body: some View {
