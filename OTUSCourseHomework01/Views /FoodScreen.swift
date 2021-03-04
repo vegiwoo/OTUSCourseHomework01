@@ -44,19 +44,22 @@ struct FoodScreen: View  {
             }
         }
         .onAppear{
-            if sizeClass == .regular {
-                selectedItemId = appState.foodScreenVM.foods[0].name
-            } else {
-                selectedItemId = nil
-            }
+            selectedItemId = nil
         }.onChange(of: appState.quickLink, perform: { value in
             if value {
-                selectedItemId = nil
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     selectedItemId = appState.getRandomFoodName()
                 }
             }
         })
+        .onChange(of: appState.selectedTab, perform: { value in
+            if value != .foodScreen {
+                selectedItemId = nil
+            }
+        })
+        .onDisappear {
+            selectedItemId = nil
+        }
     }
 }
 
