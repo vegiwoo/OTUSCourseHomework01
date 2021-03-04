@@ -52,11 +52,6 @@ struct FoodScreen: View  {
                 }
             }
         })
-        .onChange(of: appState.selectedTab, perform: { value in
-            if value != .foodScreen {
-                selectedItemId = nil
-            }
-        })
         .onDisappear {
             selectedItemId = nil
         }
