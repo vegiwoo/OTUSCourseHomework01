@@ -44,16 +44,13 @@ struct FoodScreen: View  {
             }
         }
         .onAppear{
-            selectedItemId = nil
-        }.onChange(of: appState.quickLink, perform: { value in
-            if value {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            if appState.quickLink {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     selectedItemId = appState.getRandomFoodName()
                 }
             }
-        })
-        .onDisappear {
-            selectedItemId = nil
+        }.onChange(of: appState.quickLink) { value in
+            if !value { selectedItemId = nil }
         }
     }
 }
@@ -63,4 +60,3 @@ struct FoodScreen_Previews: PreviewProvider {
         FoodScreen()
     }
 }
-

@@ -9,30 +9,21 @@ import SwiftUI
 
 struct DashboardScreen: View  {
 
-    @EnvironmentObject var appState: AppState    
+    @EnvironmentObject var appState: AppState
     @Environment(\.horizontalSizeClass) var sizeClass
-   
+    
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                HStack{
-                    CircleButton(gradientColors: [.orange, .green], maxWidth: .infinity, maxHeight: sizeClass == .compact ? geometry.size.width / 3 : geometry.size.height, text: "Pick\na random\nfood")
-                        
-                        .onTapGesture {
-                            appState.selectedTab = .foodScreen
-                            appState.quickLink = true
-                        }
-                    CircleButton(gradientColors: [.yellow, .red], maxWidth: .infinity, maxHeight: sizeClass == .compact ? geometry.size.width / 3 : geometry.size.height, text: "Go\nto food\nscreen")
-                        
-                        .onTapGesture {
-                            appState.selectedTab = .foodScreen
-                        }
-                }.padding()
-            }.onAppear{
-                appState.selectedTab = .dashboardScreen
-                appState.quickLink = false
-            }
-        }.frame(width: sizeClass == .compact ? 500 : 700, height: 150, alignment: .center)
+            CircleButton(gradientColors: [.orange, .green], maxWidth: .infinity, maxHeight: sizeClass == .compact ? geometry.size.width / 3 : geometry.size.height, text: "Pick\na random\nfood")
+                .onTapGesture {
+                    appState.selectedTab = .foodScreen
+                    appState.quickLink = true
+                }
+        }.frame(width: sizeClass == .compact ? 400 : 700, height: 150, alignment: .center)
+        .onAppear{
+            appState.selectedTab = .dashboardScreen
+            appState.quickLink = false
+        }
     }
 }
 
@@ -41,3 +32,4 @@ struct DashboardScreen_Previews: PreviewProvider {
         DashboardScreen()
     }
 }
+

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FoodDetailScreen: View {
-    
+        
     let food: Food
     var body: some View {
         ZStack {
