@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FoodDetailScreen: View {
         
+    @EnvironmentObject var appState: AppState
+    
     let food: Food
     var body: some View {
         ZStack {

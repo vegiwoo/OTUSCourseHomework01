@@ -11,13 +11,17 @@ final class AppState: ObservableObject {
     
     @Published var foodScreenVM: FoodScreenVM = .init()
     @Published var selectedTab: TabbarView.Tab = .foodScreen
-    @Published var quickLink: Bool = false
-    
-    func getRandomFoodName() -> String? {
-        if let randomElement = foodScreenVM.foods.randomElement() {
-            return randomElement.id
-        } else {
-            return nil
+    @Published var quickLink: Bool = false {
+        didSet {
+            randomFood = quickLink ? getRandomFood() : nil
         }
+    }
+    @Published var randomFood: Food?
+    
+    
+    
+    
+    func getRandomFood() -> Food {
+        return foodScreenVM.foods.randomElement()!
     }
 }

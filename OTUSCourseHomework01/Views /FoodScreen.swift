@@ -14,8 +14,9 @@ struct FoodScreen: View  {
     @State var selectedItemId: String?
     
     var navigationLink: NavigationLink<EmptyView, FoodDetailScreen>? {
-        guard let selectedFoodId = selectedItemId else { return nil }
-        guard let selectedFood = appState.foodScreenVM.foods.first(where: {$0.id == selectedFoodId}) else { return nil }
+        guard let selectedFoodId = selectedItemId,
+              let selectedFood = appState.foodScreenVM.foods.first(where: {$0.id == selectedFoodId})
+        else { return nil }
         
         return NavigationLink(
             destination: FoodDetailScreen(food: selectedFood),
@@ -29,7 +30,7 @@ struct FoodScreen: View  {
     var body: some View {
         NavigationView {
             ZStack {
-                navigationLink
+                navigationLink?.hidden()
                 List {
                     FilterView(favoriteShowes: $favoriteShowes)
                     ForEach(appState.foodScreenVM.foods) { item in
@@ -42,15 +43,12 @@ struct FoodScreen: View  {
                     }
                 }.navigationTitle(Text("Foods")).listStyle(InsetListStyle())
             }
-        }
-        .onAppear{
-            if appState.quickLink {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    selectedItemId = appState.getRandomFoodName()
-                }
-            }
-        }.onChange(of: appState.quickLink) { value in
-            if !value { selectedItemId = nil }
+        }.onAppear{
+            selectedItemId = appState.quickLink ? appState.randomFood!.id : ""
+        }.onDisappear{
+            //print("FoodScreen onDisappear")
+        }.onReceive(appState.$quickLink) { quickLink in
+            selectedItemId = quickLink ? appState.randomFood!.id : ""
         }
     }
 }
